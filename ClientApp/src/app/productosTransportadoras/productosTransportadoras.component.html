@@ -44,14 +44,11 @@
                       (click)="loadInfoFromfilter()">
                 <mat-icon title="Buscar">search</mat-icon><label>Buscar</label>
               </button>
-              <!-- [disabled]="mustDisableSearchButton()" -->
-              <!--  -->
               
               <button mat-raised-button class="mat-raised-button cleanfilter-btn"
                       (click)="cleanFilters()">
                 <mat-icon title="Limpiar filtros">delete_sweep</mat-icon><label>Limpiar filtros</label>
               </button>
-              <!-- [disabled]="mustDisableSearchButton()" -->
 
               <button mat-button class="filter-btn doubleicon" (click)="mep.expanded = !mep.expanded"> 
                   <mat-icon class="hide-desktop"  title="Búsqueda avanzada">filter_list</mat-icon><label>Búsqueda avanzada</label><mat-icon>
