@@ -1,0 +1,77 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SelectionModel } from '@angular/cdk/collections';
+import { CuposProductos } from 'src/model/cuposProductos';
+import { SharedService } from 'src/services/shared.service';
+import { Router } from '@angular/router';
+import { ModalService } from 'src/services/modal.service';
+import { ParameterService } from 'src/services/Parameter.service';
+import { SpinnerService } from 'src/services/spinner.service';
+import { ScreenElementsService } from 'src/services/screen-elements.service';
+import { CustomValidators } from './model/customValidators';
+
+export interface Prioridad {
+  value: string;
+  viewValue: string;
+}
+
+@Component({
+  selector: 'app-productosTransportadoras',
+  templateUrl: './productosTransportadoras.component.html',
+  styleUrls: ['./productosTransportadoras.component.css']
+})
+
+export class ProductosTransportadorasComponent implements OnInit {
+  spinnerMessage = 'Cargando...';
+  filterForm: FormGroup;
+  selection: SelectionModel<CuposProductos>;
+
+  Prioridades: Prioridad[] = [
+    {value: 'A', viewValue: 'Alta'},
+    {value: 'N', viewValue: 'Normal'},
+    {value: 'B', viewValue: 'Baja'},
+    {value: 'NA', viewValue: 'No aplica'}
+  ];
+
+  estadosCupos: Prioridad[] = [
+    {value: 'A', viewValue: 'Activo'}
+  ];
+
+  constructor(private sharedService: SharedService, private router: Router, public modalService: ModalService,
+              public parameterService: ParameterService, private spinnerService: SpinnerService, private fb: FormBuilder,
+              private screenElementsService: ScreenElementsService) {
+                this.setForm();
+              }
+
+  ngOnInit() {
+  }
+
+  mustDisableSearchButton() {
+    return (this.filterForm.get('nombreProducto').value === '');
+  }
+
+  setForm() {
+    this.filterForm = this.fb.group({
+      nombreProducto: [''],
+      Prioridad: [''],
+      statusCupoProducto: [''],
+      nombreTransportadora: [''],
+      excepcion: [''],
+      checkCuposActivo: false
+    });
+  }
+
+  cleanFilters() {
+    this.filterForm.setValue({
+      nombreProducto: '',
+      Prioridad: '',
+      statusCupoProducto: '',
+      nombreTransportadora: '',
+      excepcion: '',
+      checkCuposActivo: false
+    });
+    // this.paginator.pageIndex = 0;
+    // this.initData();
+  }
+
+}
