@@ -13,6 +13,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { InternalUserGridComponent } from './internalUser/internalUser-grid/internalUser-grid.component';
 import { EditCupoBaseComponent } from './cupos/editCupoBase/editCupoBase.component';
 import { TransportadorasStateComponent } from './consults/Transportadoras-state/Transportadoras-state.component';
+import { CreateCuposProductosComponent } from './productosTransportadoras/createCuposProductos/create-cupos-productos/create-cupos-productos.component';
 
 // FIN DE NAVEGACION
 
@@ -72,7 +73,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       InternalUserGridComponent,
       EditCupoBaseComponent,
       ModalConfirmComponent,
-      TransportadorasStateComponent
+      TransportadorasStateComponent,
+      CreateCuposProductosComponent
 
    ],
    imports: [
@@ -143,7 +145,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
    bootstrap: [ AppComponent ],
    entryComponents: [
       EditCupoBaseComponent,
-      ModalConfirmComponent
+      ModalConfirmComponent,
+      CreateCuposProductosComponent
    ]
 })
 export class AppModule { }

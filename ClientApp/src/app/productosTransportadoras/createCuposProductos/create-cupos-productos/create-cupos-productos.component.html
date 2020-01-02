@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="p-3">
+
+    <div class="row mb-2">
+      
+      <div class="col">
+        <h2 mat-dialog-title>Alta de cupo producto</h2>
+      </div>
+      
+      <div class="col-1 float-right">
+        <button mat-button mat-dialog-close class="btn p-0 cross-button" tabindex="-1">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+    <mat-divider></mat-divider>
+    
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="createCuposProductosForm" class="form-cupos-producto">
+        
+        <mat-tab-group dynamicHeight>
+    
+          <mat-tab label="Producto">
+              <div class="row mat-2">
+                <div class="col">
+                  <mat-form-field class="cupos-full-width">
+                    
+                    <input matInput id="Producto" placeholder="Nombre producto"
+                           formControlName="nombreProducto"
+                           required>
+                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field class="cupos-full-width">
+              
+                    <mat-select name="Prioridad" id="Prioridad" placeholder="Prioridad" formControlName="Prioridad">
+                      <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  
+                  </mat-form-field>
+                </div>
+                
+              </div>
+
+              <div class="row mat-2">
+                <div class="col">
+                  <mat-form-field class="cupos-full-width">
+              
+                    <mat-select name="CupoBase" id="CupoBase" placeholder="CupoBase" formControlName="CupoBase">
+                      <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field class="cupos-full-width">
+                    
+                    <input matInput id="CupoMinimo" placeholder="% Cupo minimo"
+                           formControlName="cupoMinimo"
+                           required>
+                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  
+                  </mat-form-field>
+                </div>
+              </div>
+
+          </mat-tab>
+
+          <mat-tab label="Transportadora">
+          </mat-tab>
+          
+          <mat-tab label="Detalle">
+          </mat-tab>
+        </mat-tab-group>
+      
+      </form>
+
+    </mat-dialog-content>
+    
+    <mat-divider></mat-divider>
+
+      <mat-dialog-actions align="end">
+        <div class="row mt-2">
+      
+          <div class="col-12">
+            <!-- <button class="btn btn-primary btn-lg mr-3" type="button" [disabled]="editCupoForm.invalid" (click)="setUpdateCupos()">Aceptar</button> -->
+            <button class="btn btn-primary btn-lg mr-3" type="button" (click)="createCupoProducto()">Aceptar</button>
+            <button class="btn btn-outline-primary btn-lg mr-3" type="button" mat-dialog-close>Cancelar</button>
+          </div>
+      
+        </div>
+      </mat-dialog-actions>
+  </div>
+</div>
