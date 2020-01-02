@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA} from '@angular/material';
 import { ModalConfirmComponent } from '../../../common/modal-confirm/modal-confirm.component';
 import { ModalConfig } from '../../../common/modal-confirm/model/ModalConfig';
 import { CustomValidators, errorMessages } from '../../model/customValidators';
@@ -9,12 +9,17 @@ import { ModalService } from '../../../../services/modal.service';
 import { SpinnerService } from '../../../../services/spinner.service';
 import { AlertService } from '../../../../services/alert.service';
 import { ParameterService } from '../../../../services/Parameter.service';
-import { CuposDetail } from '../../model/CuposDetail';
 import { CuposProductosDetail } from '../../model/CuposProductosDetail';
+import { disableDebugTools } from '@angular/platform-browser';
 
 
 export interface Prioridad {
   value: string;
+  viewValue: string;
+}
+
+export interface CuposBases {
+  value: number;
   viewValue: string;
 }
 
@@ -43,6 +48,17 @@ export class CreateCuposProductosComponent implements OnInit {
     {value: 'NA', viewValue: 'No aplica'}
   ];
 
+  // cambiar para que se obtenga desde una api o microservicio
+  cmbCuposBases: CuposBases[] = [
+    {value: 1, viewValue: 'Lunes'},
+    {value: 2, viewValue: 'Martes'},
+    {value: 3, viewValue: 'Miercoles'},
+    {value: 4, viewValue: 'Jueves'},
+    {value: 5, viewValue: 'Viernes'},
+    {value: 6, viewValue: 'Sabado'},
+    {value: 7, viewValue: 'Domingo'}
+  ];
+
   ngOnInit() {
   }
 
@@ -51,7 +67,22 @@ export class CreateCuposProductosComponent implements OnInit {
       nombreProducto: '',
       Prioridad: '',
       CupoBase: '',
-      cupoMinimo: ''
+      horaTope: '',
+      cantCupos: {value: '', disabled: true},
+      porcDeshabilita: {value: '', disabled: true},
+      cupoMinimo: {value: '', disabled: true},
+      checkActivo: true,
+      checkDom: true,
+      checkExcepcion: false,
+      // Excepcion
+      Excepcion: '',
+      // FechaIni: '',
+      // FechaFin: '',
+      // horaTopeExcepcion: '',
+      // transportadora
+      nombreTransportadora: '',
+      horasPrevias: '',
+      checkActivoTransportadora: true
     });
   }
 

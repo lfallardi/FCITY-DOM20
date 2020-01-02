@@ -23,56 +23,154 @@
         <mat-tab-group dynamicHeight>
     
           <mat-tab label="Producto">
-              <div class="row mat-2">
-                <div class="col">
-                  <mat-form-field class="cupos-full-width">
-                    
-                    <input matInput id="Producto" placeholder="Nombre producto"
-                           formControlName="nombreProducto"
-                           required>
-                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
                   
-                  </mat-form-field>
-                </div>
-                <div class="col">
-                  <mat-form-field class="cupos-full-width">
-              
-                    <mat-select name="Prioridad" id="Prioridad" placeholder="Prioridad" formControlName="Prioridad">
-                      <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
-                    </mat-select>
-                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
-                  
-                  </mat-form-field>
-                </div>
+                  <input matInput id="Producto" placeholder="Nombre producto"
+                          formControlName="nombreProducto"
+                          required>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
                 
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row mat-2">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+            
+                  <mat-select name="Prioridad" id="Prioridad" placeholder="Prioridad" formControlName="Prioridad">
+                    <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
+                  </mat-select>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                
+                </mat-form-field>
               </div>
 
-              <div class="row mat-2">
-                <div class="col">
-                  <mat-form-field class="cupos-full-width">
-              
-                    <mat-select name="CupoBase" id="CupoBase" placeholder="CupoBase" formControlName="CupoBase">
-                      <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
-                    </mat-select>
-                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
-                  
-                  </mat-form-field>
-                </div>
-                <div class="col">
-                  <mat-form-field class="cupos-full-width">
-                    
-                    <input matInput id="CupoMinimo" placeholder="% Cupo minimo"
-                           formControlName="cupoMinimo"
-                           required>
-                    <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
-                  
-                  </mat-form-field>
-                </div>
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+
+                  <input matInput type="time" id="horaTope" placeholder="Hora tope" min="00:00" max="23:59"
+                         formControlName="horaTope"
+                         required>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->   
+                
+                </mat-form-field>
               </div>
+              
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+            
+                  <mat-select name="CupoBase" id="CupoBase" placeholder="Cupo base" formControlName="CupoBase">
+                    <mat-option *ngFor="let cmbCupoBase of cmbCuposBases" [value]="cmbCupoBase.value">{{cmbCupoBase.viewValue}}</mat-option>
+                  </mat-select>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row mat-3">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+                  
+                  <input matInput id="CantCupos" placeholder="Cantidad cupos"
+                          formControlName="cantCupos"
+                          disabled>
+                
+                </mat-form-field>
+              </div>
+
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+                  
+                  <input matInput id="PorcDeshabilita" placeholder="Porcentaje deshabilita"
+                          formControlName="porcDeshabilita"
+                          disabled>
+                
+                </mat-form-field>
+              </div>
+              
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+                  
+                  <input matInput id="CupoMinimo" placeholder="Porcentaje cupo minimo"
+                          formControlName="cupoMinimo"
+                          disabled>
+                
+                </mat-form-field>
+              </div>
+
+            </div>
+
+            <div class="row mat-3">
+              <div class="col">
+                <mat-checkbox class="check" name="checkActivo" id="checkActivo" formControlName="checkActivo">Activo</mat-checkbox>
+              </div>
+              <div class="col">
+                <mat-checkbox class="check" name="checkDom" id="checkDom" formControlName="checkDom">Domicilio 2.0</mat-checkbox>
+
+              </div>
+              <div class="col">
+                <mat-checkbox class="check" name="checkExcepcion" id="checkExcepcion" formControlName="checkExcepcion" (change)="mep.expanded = !mep.expanded">Excepción</mat-checkbox>
+              </div>
+            </div>
+
+            <mat-accordion class="excepcion"> 
+              <mat-expansion-panel class="excepcion-detail" [disabled]="true" #mep="matExpansionPanel">
+  
+                  <div class="row accordion-content">
+                    <div class="row">
+                      <mat-form-field class="cupos-full-width">
+                  
+                        <input matInput id="Excepcion" placeholder="Nombre excepción"
+                                formControlName="Excepcion"
+                                disabled>
+                      
+                      </mat-form-field>
+                    </div>
+                  </div>
+  
+              </mat-expansion-panel>
+            </mat-accordion>
 
           </mat-tab>
 
           <mat-tab label="Transportadora">
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+                  
+                  <input matInput id="nombreTransportadora" placeholder="Nombre transportadora"
+                          formControlName="nombreTransportadora"
+                          required>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row mat-2">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+            
+                  <input matInput type="time" id="horasPrevias" placeholder="Horas previas" min="00:00" max="23:59"
+                         formControlName="horasPrevias"
+                         required>
+                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->   
+                  
+                </mat-form-field>
+              </div>
+
+              <div class="col">
+                <mat-checkbox class="check" name="checkActivoTransportadora" id="checkActivoTransportadora" formControlName="checkActivoTransportadora">Activo</mat-checkbox>
+              </div>
+              
+            </div>
           </mat-tab>
           
           <mat-tab label="Detalle">

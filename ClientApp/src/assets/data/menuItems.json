@@ -17,14 +17,6 @@
             "subItems": []
         },
         {
-            "routePath": "/internalUser",
-            "description": "Usuarios",
-            "disabled": false,
-            "show": false,
-            "icon":"person",
-            "subItems": []
-        },
-        {
             "routePath": "/consultas",
             "description": "Consultas",
             "disabled": false,
@@ -64,7 +56,15 @@
                     "subItems": []
                 }
             ]
-        }, 
+        },
+        {
+            "routePath": "/internalUser",
+            "description": "Usuarios",
+            "disabled": false,
+            "show": false,
+            "icon":"person",
+            "subItems": []
+        },
         {
             "routePath": "/suppliers",
             "description": "Configuración",
