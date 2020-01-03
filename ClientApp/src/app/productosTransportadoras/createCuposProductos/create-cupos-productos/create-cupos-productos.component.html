@@ -121,20 +121,46 @@
             </div>
 
             <mat-accordion class="excepcion"> 
-              <mat-expansion-panel class="excepcion-detail" [disabled]="true" #mep="matExpansionPanel">
-  
+              <mat-expansion-panel class="" [disabled]="true" #mep="matExpansionPanel">
                 
-                  <div class="row accordion-content">
+                <div class="row accordion-content">
+                  
+                  <div class="col">
                     <div class="row">
                       <mat-form-field class="cupos-full-width">
-                  
                         <input matInput id="Excepcion" placeholder="Nombre excepción"
                                 formControlName="Excepcion"
-                                disabled>
+                                required>
                       
                       </mat-form-field>
                     </div>
+                  
+                    <div class="row mat-3">
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput placeholder="Fecha inicio">
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput placeholder="Fecha fin">
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput type="time" id="horaTopeExcepcion" placeholder="Hora tope" min="00:00" max="23:59"
+                                 formControlName="horaTopeExcepcion"
+                                 required>
+                        </mat-form-field>
+                      </div>
+                      
+                    </div>
+
                   </div>
+                
+                </div>
   
               </mat-expansion-panel>
             </mat-accordion>
@@ -147,8 +173,8 @@
                 <mat-form-field class="cupos-full-width">
                   
                   <input matInput id="nombreTransportadora" placeholder="Nombre transportadora"
-                          formControlName="nombreTransportadora"
-                          required>
+                         formControlName="nombreTransportadora"
+                         required>
                   <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
                 
                 </mat-form-field>
@@ -168,7 +194,7 @@
               </div>
 
               <div class="col">
-                <mat-checkbox class="check" name="checkActivoTransportadora" id="checkActivoTransportadora" formControlName="checkActivoTransportadora">Activo</mat-checkbox>
+                <mat-checkbox class="check-transportadora" name="checkActivoTransportadora" id="checkActivoTransportadora" formControlName="checkActivoTransportadora">Activo</mat-checkbox>
               </div>
               
             </div>

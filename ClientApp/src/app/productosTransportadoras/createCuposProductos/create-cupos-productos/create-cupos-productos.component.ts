@@ -78,7 +78,7 @@ export class CreateCuposProductosComponent implements OnInit {
       Excepcion: '',
       // FechaIni: '',
       // FechaFin: '',
-      // horaTopeExcepcion: '',
+      horaTopeExcepcion: '',
       // transportadora
       nombreTransportadora: '',
       horasPrevias: '',

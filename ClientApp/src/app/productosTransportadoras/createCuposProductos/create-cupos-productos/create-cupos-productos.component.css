@@ -21,13 +21,31 @@ button {
 
 .check {
     justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.check-transportadora {
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 
 .excepcion {
     margin-top: 10px;
 }
 
-.excepcion-detail{
+/* GUIAS */
+.marco {
+    border: magenta 1px solid;
+}
+
+.marco2 {
+    border: cyan 1px solid;
+}
+
+.marco3 {
+    border: black 1px solid;
+}
+/* .excepcion-detail{
     padding-left: 10px;
     padding-right: 10px;
-}
+} */
