@@ -5,9 +5,6 @@ import { ErrorStateMatcher } from '@angular/material';
 export class CustomValidators {
 
     static cuposValidator(group: FormGroup) {
-        // const pass = group.controls.password.value;
-        // const confirmPass = group.controls.repeatPassword.value;
-
         const cupos = group.controls.cupos.value;
 
         return cupos !== '' || cupos !== undefined ? null : true ;

@@ -48,7 +48,12 @@ export class ProductosTransportadorasComponent implements OnInit {
   }
 
   mustDisableSearchButton() {
-    return (this.filterForm.get('nombreProducto').value === '');
+    return (this.filterForm.get('nombreProducto').value === ''
+         && this.filterForm.get('Prioridad').value === ''
+         && this.filterForm.get('nombreTransportadora').value === ''
+         && this.filterForm.get('statusCupoProducto').value === ''
+         && this.filterForm.get('excepcion').value === ''
+         && !this.filterForm.get('checkCuposActivo').value);
   }
 
   setForm() {
@@ -78,7 +83,7 @@ export class ProductosTransportadorasComponent implements OnInit {
   openCreateCupoProducto(cupoProducto: CuposProductos): void {
     let dialogRef;
     dialogRef = this.modalService.open(CreateCuposProductosComponent, {
-      width: '800px',
+      width: '900px',
       height: '80%',
       autoFocus: false
     });

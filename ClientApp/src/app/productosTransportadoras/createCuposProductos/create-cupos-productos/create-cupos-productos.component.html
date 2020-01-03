@@ -30,7 +30,7 @@
                   <input matInput id="Producto" placeholder="Nombre producto"
                           formControlName="nombreProducto"
                           required>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  <mat-error *ngIf="createCuposProductosForm.get('nombreProducto').hasError('required')" > {{errors.requiredNombreProducto}} </mat-error>
                 
                 </mat-form-field>
               </div>
@@ -40,10 +40,10 @@
               <div class="col">
                 <mat-form-field class="cupos-full-width">
             
-                  <mat-select name="Prioridad" id="Prioridad" placeholder="Prioridad" formControlName="Prioridad">
+                  <mat-select name="Prioridad" id="Prioridad" placeholder="Prioridad" formControlName="Prioridad" required>
                     <mat-option *ngFor="let Prioridad of Prioridades" [value]="Prioridad.value">{{Prioridad.viewValue}}</mat-option>
                   </mat-select>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  <mat-error *ngIf="createCuposProductosForm.get('Prioridad').hasError('required')" > {{errors.requiredPriority}} </mat-error>
                 
                 </mat-form-field>
               </div>
@@ -107,16 +107,18 @@
 
             </div>
 
+            <mat-divider></mat-divider>
+
             <div class="row mat-3">
               <div class="col">
-                <mat-checkbox class="check" name="checkActivo" id="checkActivo" formControlName="checkActivo">Activo</mat-checkbox>
+                <mat-checkbox class="check check-transportadora" name="checkActivo" id="checkActivo" formControlName="checkActivo">Activo</mat-checkbox>
               </div>
               <div class="col">
-                <mat-checkbox class="check" name="checkDom" id="checkDom" formControlName="checkDom">Domicilio 2.0</mat-checkbox>
+                <mat-checkbox class="check check-transportadora" name="checkDom" id="checkDom" formControlName="checkDom">Domicilio 2.0</mat-checkbox>
 
               </div>
               <div class="col">
-                <mat-checkbox class="check" name="checkExcepcion" id="checkExcepcion" formControlName="checkExcepcion" (change)="mep.expanded = !mep.expanded">Excepción</mat-checkbox>
+                <mat-checkbox class="check check-transportadora" name="checkExcepcion" id="checkExcepcion" formControlName="checkExcepcion" (change)="mep.expanded = !mep.expanded">Excepción</mat-checkbox>
               </div>
             </div>
 
@@ -129,8 +131,8 @@
                     <div class="row">
                       <mat-form-field class="cupos-full-width">
                         <input matInput id="Excepcion" placeholder="Nombre excepción"
-                                formControlName="Excepcion"
-                                required>
+                               formControlName="Excepcion"
+                               required>
                       
                       </mat-form-field>
                     </div>
@@ -138,13 +140,17 @@
                     <div class="row mat-3">
                       <div class="col">
                         <mat-form-field>
-                          <input matInput placeholder="Fecha inicio">
+                          <input matInput type="date" placeholder="Fecha inicio"
+                                 id="fechaInicio" name="fechaInicio" formControlName="fechaInicio"
+                                 required>
                         </mat-form-field>
                       </div>
 
                       <div class="col">
                         <mat-form-field>
-                          <input matInput placeholder="Fecha fin">
+                          <input matInput type="date" placeholder="Fecha fin"
+                                 id="fechaFin" name="fechaFin" formControlName="fechaFin"
+                                 required>
                         </mat-form-field>
                       </div>
 
@@ -156,6 +162,38 @@
                         </mat-form-field>
                       </div>
                       
+                    </div>
+
+                    <div class="row mat-4">
+
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput type="number" id="cuposTotalesExcepcion" placeholder="Cupos totales" min="0"
+                                 formControlName="cuposTotalesExcepcion"
+                                 required>
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput type="number" id="porcDeshabilitaExcepcion" placeholder="Porcentaje deshabilita" min="0"
+                                 formControlName="porcDeshabilitaExcepcion"
+                                 required>
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col">
+                        <mat-form-field>
+                          <input matInput type="number" id="cuposMinimosExcepcion" placeholder="Cupos minimos" min="0"
+                                 formControlName="cuposMinimosExcepcion"
+                                 required>
+                        </mat-form-field>
+                      </div>
+
+                      <div class="col">
+                        <mat-checkbox class="check check-transportadora" name="checkActivoExcepcion" id="checkActivoExcepcion" formControlName="checkActivoExcepcion">Activo</mat-checkbox>
+                      </div>
+
                     </div>
 
                   </div>
@@ -210,16 +248,16 @@
     
     <mat-divider></mat-divider>
 
-      <mat-dialog-actions align="end">
-        <div class="row mt-2">
-      
-          <div class="col-12">
-            <!-- <button class="btn btn-primary btn-lg mr-3" type="button" [disabled]="editCupoForm.invalid" (click)="setUpdateCupos()">Aceptar</button> -->
-            <button class="btn btn-primary btn-lg mr-3" type="button" (click)="createCupoProducto()">Aceptar</button>
-            <button class="btn btn-outline-primary btn-lg mr-3" type="button" mat-dialog-close>Cancelar</button>
-          </div>
-      
+    <mat-dialog-actions align="end">
+      <div class="row mt-2">
+    
+        <div class="col-12">
+          <!-- <button class="btn btn-primary btn-lg mr-3" type="button" [disabled]="editCupoForm.invalid" (click)="setUpdateCupos()">Aceptar</button> -->
+          <button class="btn btn-primary btn-lg mr-3" type="button" (click)="createCupoProducto()">Aceptar</button>
+          <button class="btn btn-outline-primary btn-lg mr-3" type="button" mat-dialog-close>Cancelar</button>
         </div>
-      </mat-dialog-actions>
+    
+      </div>
+    </mat-dialog-actions>
   </div>
 </div>

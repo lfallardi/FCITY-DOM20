@@ -64,7 +64,7 @@ export class CreateCuposProductosComponent implements OnInit {
 
   setForm() {
     this.createCuposProductosForm = this.fb.group({
-      nombreProducto: '',
+      nombreProducto: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
       Prioridad: '',
       CupoBase: '',
       horaTope: '',
@@ -76,9 +76,13 @@ export class CreateCuposProductosComponent implements OnInit {
       checkExcepcion: false,
       // Excepcion
       Excepcion: '',
-      // FechaIni: '',
-      // FechaFin: '',
+      fechaInicio: '',
+      fechaFin: '',
+      cuposTotalesExcepcion: 0,
       horaTopeExcepcion: '',
+      porcDeshabilitaExcepcion: 0,
+      cuposMinimosExcepcion: 0,
+      checkActivoExcepcion: false,
       // transportadora
       nombreTransportadora: '',
       horasPrevias: '',
