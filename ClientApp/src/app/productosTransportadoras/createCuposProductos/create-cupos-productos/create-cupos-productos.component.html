@@ -52,9 +52,7 @@
                 <mat-form-field class="cupos-full-width">
 
                   <input matInput type="time" id="horaTope" placeholder="Hora tope" min="00:00" max="23:59"
-                         formControlName="horaTope"
-                         required>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->   
+                         formControlName="horaTope">
                 
                 </mat-form-field>
               </div>
@@ -65,10 +63,10 @@
               <div class="col">
                 <mat-form-field class="cupos-full-width">
             
-                  <mat-select name="CupoBase" id="CupoBase" placeholder="Cupo base" formControlName="CupoBase">
+                  <mat-select name="CupoBase" id="CupoBase" placeholder="Cupo base" formControlName="CupoBase" required>
                     <mat-option *ngFor="let cmbCupoBase of cmbCuposBases" [value]="cmbCupoBase.value">{{cmbCupoBase.viewValue}}</mat-option>
                   </mat-select>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
+                  <mat-error *ngIf="createCuposProductosForm.get('CupoBase').hasError('required')" > {{errors.requiredCupos}} </mat-error>
                 
                 </mat-form-field>
               </div>
@@ -213,21 +211,21 @@
                   <input matInput id="nombreTransportadora" placeholder="Nombre transportadora"
                          formControlName="nombreTransportadora"
                          required>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->
-                
+                  <mat-error *ngIf="createCuposProductosForm.get('nombreTransportadora').hasError('required')" > {{errors.requiredNombreTransportadora}} </mat-error>
+                  
                 </mat-form-field>
               </div>
             </div>
-
+            
             <div class="row mat-2">
               <div class="col">
                 <mat-form-field class="cupos-full-width">
-            
+                  
                   <input matInput type="time" id="horasPrevias" placeholder="Horas previas" min="00:00" max="23:59"
                          formControlName="horasPrevias"
                          required>
-                  <!-- <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error> -->   
-                  
+                  <!-- <mat-error *ngIf="createCuposProductosForm.get('horasPrevias').hasError('required')" > {{errors.requiredNombreTransportadora}} </mat-error> -->
+
                 </mat-form-field>
               </div>
 

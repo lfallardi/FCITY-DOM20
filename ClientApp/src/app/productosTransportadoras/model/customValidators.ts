@@ -16,13 +16,13 @@ export class CustomValidators {
     //     return cupos !== '' || cupos !== undefined ? null : true ;
     // }
 
-    // static dateValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    //     const date = new Date(control.value);
-    //     if (control.value !== undefined && (date.getFullYear() < 1000 || date.getFullYear() > 2999)) {
-    //         return { 'invalidDate': true };
-    //     }
-    //     return null;
-    // }
+    static dateValidator(control: AbstractControl): { [key: string]: boolean } | null {
+        const date = new Date(control.value);
+        if (control.value !== undefined && (date.getFullYear() < 1000 || date.getFullYear() > 2999)) {
+            return { 'invalidDate': true };
+        }
+        return null;
+    }
 
 }
 
