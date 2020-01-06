@@ -10,11 +10,9 @@ export class CustomValidators {
         return name !== '' || name !== undefined ? null : true;
     }
 
-    // static cuposProductosValidator(group: FormGroup) {
-    //     const cupos = group.controls.cupos.value;
-
-    //     return cupos !== '' || cupos !== undefined ? null : true ;
-    // }
+    static cuposProductosExcepcionValidator(group: FormGroup) {
+        const nameExcepcion = group.controls.cupos.value;
+    }
 
     static dateValidator(control: AbstractControl): { [key: string]: boolean } | null {
         const date = new Date(control.value);
@@ -46,6 +44,7 @@ export const errorMessages = {
     requiredCuposMinimos: 'Completá los cupos minimos',
     requiredNombreTransportadora: 'Completá el nombre de la transportadora',
     requiredHoraPrevia: 'Completá la hora previa de preparación',
+    requiredNombreExcepcion: 'Completá el nombre de la excepción',
     incorrectString: 'El campo no debe contener caracteres especiales',
 
 };

@@ -131,6 +131,7 @@
                         <input matInput id="Excepcion" placeholder="Nombre excepción"
                                formControlName="Excepcion"
                                required>
+                        <mat-error *ngIf="mep.expanded && createCuposProductosForm.get('Excepcion').hasError('required')" > {{errors.requiredNombreExcepcion}} </mat-error>
                       
                       </mat-form-field>
                     </div>
@@ -221,7 +222,7 @@
               <div class="col">
                 <mat-form-field class="cupos-full-width">
                   
-                  <input matInput type="time" id="horasPrevias" placeholder="Horas previas" min="00:00" max="23:59"
+                  <input matInput type="time" id="horasPrevias" placeholder="Horas previas de preparación" min="00:00" max="23:59"
                          formControlName="horasPrevias"
                          required>
                   <!-- <mat-error *ngIf="createCuposProductosForm.get('horasPrevias').hasError('required')" > {{errors.requiredNombreTransportadora}} </mat-error> -->
@@ -234,10 +235,30 @@
               </div>
               
             </div>
+
+            <div class="row mat-2">
+              <div class="col">
+                <mat-form-field class="cupos-full-width">
+                  
+                  <input matInput type="time" id="horasTransportadora" placeholder="Horas transportadora" min="00:00" max="23:59"
+                         formControlName="horasTransportadora"
+                         required>
+                  <!-- <mat-error *ngIf="createCuposProductosForm.get('horasTransportadora').hasError('required')" > {{errors.requiredNombreTransportadora}} </mat-error> -->
+
+                </mat-form-field>
+              </div>
+
+              <div class="col">
+                <div class="col">
+                  <mat-form-field class="cupos-full-width">
+                    <input matInput type="number" id="diasPromesa" name="diasPromesa" formControlName="diasPromesa" min="0" placeholder="Días de promesa">
+                  </mat-form-field>
+                </div>
+              </div>
+              
+            </div>
           </mat-tab>
-          
-          <mat-tab label="Detalle">
-          </mat-tab>
+
         </mat-tab-group>
       
       </form>
@@ -251,7 +272,7 @@
     
         <div class="col-12">
           <!-- <button class="btn btn-primary btn-lg mr-3" type="button" [disabled]="editCupoForm.invalid" (click)="setUpdateCupos()">Aceptar</button> -->
-          <button class="btn btn-primary btn-lg mr-3" type="button" (click)="createCupoProducto()">Aceptar</button>
+          <button class="btn btn-primary btn-lg mr-3" type="button" (click)="createNewCupoProducto()">Aceptar</button>
           <button class="btn btn-outline-primary btn-lg mr-3" type="button" mat-dialog-close>Cancelar</button>
         </div>
     

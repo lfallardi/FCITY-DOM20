@@ -11,6 +11,7 @@ import { AlertService } from '../../../../services/alert.service';
 import { ParameterService } from '../../../../services/Parameter.service';
 import { CuposProductosDetail } from '../../model/CuposProductosDetail';
 import { disableDebugTools } from '@angular/platform-browser';
+import { NewCuposRequest } from 'src/app/cupos/model/request/NewCuposRequest';
 
 
 export interface Prioridad {
@@ -65,8 +66,8 @@ export class CreateCuposProductosComponent implements OnInit {
   setForm() {
     this.createCuposProductosForm = this.fb.group({
       nombreProducto: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
-      Prioridad: '',
-      CupoBase: '',
+      Prioridad: ['', Validators.required],
+      CupoBase: ['', Validators.required],
       horaTope: '',
       cantCupos: {value: '', disabled: true},
       porcDeshabilita: {value: '', disabled: true},
@@ -75,7 +76,7 @@ export class CreateCuposProductosComponent implements OnInit {
       checkDom: true,
       checkExcepcion: false,
       // Excepcion
-      Excepcion: '',
+      Excepcion: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
       fechaInicio: '',
       fechaFin: '',
       cuposTotalesExcepcion: 0,
@@ -86,8 +87,16 @@ export class CreateCuposProductosComponent implements OnInit {
       // transportadora
       nombreTransportadora: '',
       horasPrevias: '',
-      checkActivoTransportadora: true
+      checkActivoTransportadora: true,
+      horasTransportadora: '',
+      diasPromesa: 0
     });
+  }
+
+  createNewCupoProducto() {
+    if (this.createCuposProductosForm.valid) {
+      this.spinnerService.show();
+    }
   }
 
 }
