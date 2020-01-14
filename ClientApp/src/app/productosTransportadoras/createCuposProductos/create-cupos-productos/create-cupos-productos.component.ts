@@ -13,7 +13,6 @@ import { CuposProductosDetail } from '../../model/CuposProductosDetail';
 import { disableDebugTools } from '@angular/platform-browser';
 import { NewCuposRequest } from 'src/app/cupos/model/request/NewCuposRequest';
 
-
 export interface Prioridad {
   value: string;
   viewValue: string;
@@ -76,19 +75,19 @@ export class CreateCuposProductosComponent implements OnInit {
       checkDom: true,
       checkExcepcion: false,
       // Excepcion
-      Excepcion: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
+      Excepcion: '',
       fechaInicio: '',
       fechaFin: '',
       cuposTotalesExcepcion: 0,
-      horaTopeExcepcion: '',
+      horaTopeExcepcion: ['', Validators.required],
       porcDeshabilitaExcepcion: 0,
       cuposMinimosExcepcion: 0,
       checkActivoExcepcion: false,
       // transportadora
-      nombreTransportadora: '',
-      horasPrevias: '',
+      nombreTransportadora: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])],
+      horasPrevias: ['', Validators.required],
       checkActivoTransportadora: true,
-      horasTransportadora: '',
+      horasTransportadora: ['', Validators.required],
       diasPromesa: 0
     });
   }
@@ -96,6 +95,17 @@ export class CreateCuposProductosComponent implements OnInit {
   createNewCupoProducto() {
     if (this.createCuposProductosForm.valid) {
       this.spinnerService.show();
+    }
+  }
+
+  mustDisableCreateButton() {
+    if (!this.createCuposProductosForm.get('checkActivoExcepcion').value) {
+      return (this.createCuposProductosForm.get('nombreProducto').value === ''
+           && this.createCuposProductosForm.get('Prioridad').value === ''
+           && this.createCuposProductosForm.get('CupoBase').value === ''
+           && this.createCuposProductosForm.get('nombreTransportadora').value === ''
+           && this.createCuposProductosForm.get('horasPrevias').value === ''
+           && this.createCuposProductosForm.get('horasTransportadora').value === '');
     }
   }
 
