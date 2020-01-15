@@ -5,10 +5,9 @@ import { SynchronizationService } from '../../services/synchronization.service';
 import { ModalService } from '../../services/modal.service';
 import { EditCupoBaseComponent } from './editCupoBase/editCupoBase.component';
 import { Cupos } from 'src/model/cupos';
-// import { CuposDetail } from './model/CuposDetail';
 
 export interface dCupos {
-  position: number;
+  IdECCupoBase: number;
   day: number;
   cupos: number;
   porcDeshabilita: number;
@@ -16,13 +15,13 @@ export interface dCupos {
 
 // Hay que adaptarlo para que tome los datos de la base de datos
 const ELEMENT_DATA: dCupos[] = [
-  {position: 1, day: 1, cupos: 400, porcDeshabilita: 80},
-  {position: 2, day: 2, cupos: 400, porcDeshabilita: 80},
-  {position: 3, day: 3, cupos: 400, porcDeshabilita: 80},
-  {position: 4, day: 4, cupos: 400, porcDeshabilita: 80},
-  {position: 5, day: 5, cupos: 400, porcDeshabilita: 80},
-  {position: 6, day: 6, cupos: 400, porcDeshabilita: 80},
-  {position: 7, day: 7, cupos: 400, porcDeshabilita: 80}
+  {IdECCupoBase: 1, day: 1, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 2, day: 2, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 3, day: 3, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 4, day: 4, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 5, day: 5, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 6, day: 6, cupos: 400, porcDeshabilita: 80},
+  {IdECCupoBase: 7, day: 7, cupos: 400, porcDeshabilita: 80}
 ];
 
 @Component({

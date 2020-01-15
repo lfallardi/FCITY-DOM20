@@ -12873,11 +12873,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FCITY\\00 Proyectos\\NET CORE API\\00 API CUPOS\\CuposAPI\\CuposAPI\\CuposAPI.csproj",
+      "projectUniqueName": "C:\\FCITY\\00 Proyectos\\Fcity.Administracion.Cupos.CDEC\\CuposAPI\\CuposAPI\\CuposAPI.csproj",
       "projectName": "CuposAPI",
-      "projectPath": "C:\\FCITY\\00 Proyectos\\NET CORE API\\00 API CUPOS\\CuposAPI\\CuposAPI\\CuposAPI.csproj",
+      "projectPath": "C:\\FCITY\\00 Proyectos\\Fcity.Administracion.Cupos.CDEC\\CuposAPI\\CuposAPI\\CuposAPI.csproj",
       "packagesPath": "C:\\Users\\l_fallardi\\.nuget\\packages\\",
-      "outputPath": "C:\\FCITY\\00 Proyectos\\NET CORE API\\00 API CUPOS\\CuposAPI\\CuposAPI\\obj\\",
+      "outputPath": "C:\\FCITY\\00 Proyectos\\Fcity.Administracion.Cupos.CDEC\\CuposAPI\\CuposAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
