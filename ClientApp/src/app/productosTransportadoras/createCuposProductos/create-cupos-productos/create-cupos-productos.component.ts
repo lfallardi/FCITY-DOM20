@@ -48,7 +48,6 @@ export class CreateCuposProductosComponent implements OnInit {
     {value: 'NA', viewValue: 'No aplica'}
   ];
 
-  // cambiar para que se obtenga desde una api o microservicio
   cmbCuposBases: CuposBases[] = [
     {value: 1, viewValue: 'Lunes'},
     {value: 2, viewValue: 'Martes'},
