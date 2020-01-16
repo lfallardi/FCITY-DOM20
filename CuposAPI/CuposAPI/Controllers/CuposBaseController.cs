@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using CuposAPI.Data;
 using CuposAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace CuposAPI.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     [Route("api/[controller]")]
     [ApiController]
     public class CuposBaseController : ControllerBase
@@ -22,7 +24,6 @@ namespace CuposAPI.Controllers
             _cuposDbContext = cuposDbContext;
         }
 
-
         // GET: api/CuposBase
         [HttpGet()]
         public async Task<IActionResult> Get()
@@ -31,10 +32,6 @@ namespace CuposAPI.Controllers
             return Ok(_cuposDbContext.ECCupoBase.ToList());
 
         }
-        //public IEnumerable<CupoBase> Get()
-        //{
-        //    return _cuposDbContext.ECCupoBase;
-        //}
 
         // GET: api/CuposBase/5
         [HttpGet("{id}")]
@@ -45,9 +42,20 @@ namespace CuposAPI.Controllers
         }
 
         // PUT: api/CuposBase/5
+        //[HttpPut()]
+        //public async Task<IActionResult> Update([FromBody]CupoBaseUpdate request)
+        //{
+        //    await _
+        //}
+
+
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] CupoBase cupo)
         {
+            var entity = _cuposDbContext.ECCupoBase.Find(id);
+            entity.CuposTotales = cupo.CuposTotales;
+            entity.PorcCuposDesactiva = cupo.PorcCuposDesactiva;
+            _cuposDbContext.SaveChanges();
         }
     }
 }

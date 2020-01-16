@@ -14,34 +14,34 @@
         
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-          <ng-container matColumnDef="position">
+          <ng-container matColumnDef="idECCupoBase">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
-            <td mat-cell *matCellDef="let row"> {{row.IdECCupoBase}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.idECCupoBase}} </td>
           </ng-container>
         
-          <ng-container matColumnDef="day">
+          <ng-container matColumnDef="dia">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Día</th>
             <td mat-cell *matCellDef="let row"> 
-              <div [ngSwitch]="row.day">
+              <div [ngSwitch]="row.dia">
                 <p *ngSwitchCase=1> Lunes </p>
                 <p *ngSwitchCase=2> Martes </p>
-                <p *ngSwitchCase=3> Miercoles </p>
+                <p *ngSwitchCase=3> Miércoles </p>
                 <p *ngSwitchCase=4> Jueves </p>
                 <p *ngSwitchCase=5> Viernes </p>
-                <p *ngSwitchCase=6> Sabado </p>
+                <p *ngSwitchCase=6> Sábado </p>
                 <p *ngSwitchCase=7> Domingo </p>
               </div>
             </td>
           </ng-container>
         
-          <ng-container matColumnDef="cupos">
+          <ng-container matColumnDef="cuposTotales">
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="DataTableHeaderNumber">Cupos</th>
-            <td mat-cell *matCellDef="let row" class="DataTableNumber"> {{row.cupos}} </td>
+            <td mat-cell *matCellDef="let row" class="DataTableNumber"> {{row.cuposTotales}} </td>
           </ng-container>
         
-          <ng-container matColumnDef="porcDeshabilita">
+          <ng-container matColumnDef="porcCuposDesactiva">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>% Deshabilitado</th>
-            <td mat-cell *matCellDef="let row" class="DataTableNumber"> {{row.porcDeshabilita}} </td>
+            <td mat-cell *matCellDef="let row" class="DataTableNumber"> {{row.porcCuposDesactiva}} </td>
           </ng-container>
 
           <ng-container matColumnDef="edition">

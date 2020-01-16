@@ -10,6 +10,7 @@ import { SpinnerService } from '../../../services/spinner.service';
 import { AlertService } from '../../../services/alert.service';
 import { CuposDetail } from '../model/CuposDetail';
 import { ParameterService } from 'src/services/Parameter.service';
+import { CuposBaseService } from 'src/services/cuposBase.service';
 
 @Component({
   selector: 'app-editCupoBase',
@@ -21,7 +22,7 @@ export class EditCupoBaseComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public cupoDet: CuposDetail,
               private modalService: ModalService, private spinnerService: SpinnerService,
               private alertService: AlertService, private fb: FormBuilder,
-              public parameterService: ParameterService) {
+              public parameterService: ParameterService, private cuposService: CuposBaseService) {
     this.setForm();
   }
 
@@ -35,8 +36,8 @@ export class EditCupoBaseComponent implements OnInit {
 
   setForm() {
     this.updateCuposForm = this.fb.group({
-      cupos: [this.cupoDet.cupos, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
-      porcDeshabilita: [this.cupoDet.porcDeshabilita, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      cupos: [this.cupoDet.cuposTotales, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      porcDeshabilita: [this.cupoDet.porcCuposDesactiva, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
     });
   }
 
@@ -52,9 +53,20 @@ export class EditCupoBaseComponent implements OnInit {
 
       dialogRef.componentInstance.onConfirm.subscribe(() => {
         this.spinnerService.show();
-        this.spinnerService.hide();
-        this.alertService.success('Se actualizaron los datos de forma exitosa!');
-        this.onUpdateComplete.emit();
+
+        const updateCupos = <CuposDetail>this.updateCuposForm.value;
+        updateCupos.idECCupoBase = this.cupoDet.idECCupoBase;
+        updateCupos.cuposTotales = this.cupoDet.cuposTotales;
+        updateCupos.porcCuposDesactiva = this.cupoDet.porcCuposDesactiva;
+
+        this.cuposService.updateCupoBase(updateCupos).subscribe(response => {
+          this.spinnerService.hide();
+          this.alertService.success('Se actualizaron los datos de forma exitosa!');
+          this.onUpdateComplete.emit();
+        }, errorResponse => {
+          this.spinnerService.hide();
+          errorResponse.error.Errors.array.forEach(element => this.alertService.error(element));
+        });
       });
 
     }

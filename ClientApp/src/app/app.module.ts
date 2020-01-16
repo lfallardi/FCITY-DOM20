@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// INICIO DE NAVEGACION
+// NAVEGACION
 import { LoginAdComponent } from './login-ad/login-ad.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -75,7 +75,6 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       ModalConfirmComponent,
       TransportadorasStateComponent,
       CreateCuposProductosComponent
-
    ],
    imports: [
       AppRoutingModule,
@@ -133,7 +132,6 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       FormsModule,
       ReactiveFormsModule,
       UiModule
-
    ],
    providers: [AuthGuard, DatePipe, MatDatepickerModule,
       {
@@ -149,4 +147,5 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       CreateCuposProductosComponent
    ]
 })
+
 export class AppModule { }

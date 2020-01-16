@@ -1,6 +1,6 @@
 export class Cupos {
-    IdECCupoBase: number;
-    Dia: string;
-    cupos: number;
-    porDisable: number;
+    idECCupoBase: number;
+    dia: string;
+    cuposTotales: number;
+    porcCuposDesactiva: number;
 }

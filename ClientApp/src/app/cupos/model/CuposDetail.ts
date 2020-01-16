@@ -2,10 +2,10 @@ import { Theme } from './theme';
 import { Profile } from './profile';
 
 export class CuposDetail {
-    IdECCupoBase: number;
-    Dia: string;
-    cupos: number;
-    porcDeshabilita: number;
+    idECCupoBase: number;
+    dia: string;
+    cuposTotales: number;
+    porcCuposDesactiva: number;
 
     themes: Theme[];
     profiles: Profile[];
