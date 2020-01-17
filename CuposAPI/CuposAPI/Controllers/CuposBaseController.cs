@@ -26,20 +26,37 @@ namespace CuposAPI.Controllers
 
         // GET: api/CuposBase
         [HttpGet()]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
 
             return Ok(_cuposDbContext.ECCupoBase.ToList());
 
         }
+        //public async Task<IActionResult> Get()
+        //{
+
+        //    return Ok(_cuposDbContext.ECCupoBase.ToList());
+
+        //}
 
         // GET: api/CuposBase/5
         [HttpGet("{id}")]
-        public CupoBase Get(int id)
+        public IActionResult Get(int id)
         {
             var cupoBase = _cuposDbContext.ECCupoBase.Find(id);
-            return cupoBase;
+            if (cupoBase==null) 
+            { 
+                return NotFound("No se encontro el registro"); 
+            }
+            return Ok(cupoBase);
         }
+
+        //public CupoBase Get(int id)
+        //{
+        //    var cupoBase = _cuposDbContext.ECCupoBase.Find(id);
+        //    return cupoBase;
+        //}
+
 
         // PUT: api/CuposBase/5
         //[HttpPut()]
@@ -50,12 +67,17 @@ namespace CuposAPI.Controllers
 
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CupoBase cupo)
+        public IActionResult Put(int id, [FromBody] CupoBase cupo)
         {
             var entity = _cuposDbContext.ECCupoBase.Find(id);
+            if (entity==null)
+            {
+                return NotFound("No se ha encontrado el registro para actualizar.");
+            }
             entity.CuposTotales = cupo.CuposTotales;
             entity.PorcCuposDesactiva = cupo.PorcCuposDesactiva;
             _cuposDbContext.SaveChanges();
+            return Ok();
         }
     }
 }

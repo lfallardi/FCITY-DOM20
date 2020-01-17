@@ -18,18 +18,18 @@ import { CuposDataSource } from './CuposDataSource';
 export class CuposComponent implements OnInit {
   displayedColumns: string[] = ['idECCupoBase', 'dia', 'cuposTotales', 'porcCuposDesactiva', 'edition'];
 
-  dataSource = CuposDataSource;
   synchronizationDate: string;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatTable, {static: true}) table: MatTable<Cupos>;
   errorMessage: string;
 
   isLoading: Boolean = true;
   length: 0;
 
   constructor(private synchronizationService: SynchronizationService, private modalService: ModalService,
-              private dataService: CuposBaseService) { }
+    private dataService: CuposBaseService) { }
 
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
+    @ViewChild(MatTable, {static: true}) table: MatTable<Cupos>;
+    dataSource = new CuposDataSource(this.dataService, this.sort);
 
   ngOnInit() {
     this.initData();
@@ -40,7 +40,6 @@ export class CuposComponent implements OnInit {
     this.dataSource = new CuposDataSource(this.dataService, this.sort);
     this.dataSource.clearGrid();
     this.dataSource.loadCupos();
-
   }
 
   private updateSyncroInformation() {

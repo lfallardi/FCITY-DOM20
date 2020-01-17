@@ -58,7 +58,7 @@ export class EditCupoBaseComponent implements OnInit {
         updateCupos.idECCupoBase = this.cupoDet.idECCupoBase;
         updateCupos.cuposTotales = this.cupoDet.cuposTotales;
         updateCupos.porcCuposDesactiva = this.cupoDet.porcCuposDesactiva;
-
+        console.log("estoy antes del subscribe!");
         this.cuposService.updateCupoBase(updateCupos).subscribe(response => {
           this.spinnerService.hide();
           this.alertService.success('Se actualizaron los datos de forma exitosa!');
