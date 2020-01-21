@@ -53,5 +53,28 @@ namespace CuposAPI.Controllers
             return Ok(entityCP);
 
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] CupoProducto cupoProducto)
+        {
+            var entityCP = _cuposDbContext.ECCupoProducto.Find(id);
+            if (entityCP==null)
+            {
+                return NotFound("No se ha encontrado el registro para actualizar.");
+            }
+            entityCP.NombreProducto = cupoProducto.NombreProducto;
+            entityCP.IdPrioridadIngresa = cupoProducto.IdPrioridadIngresa;
+            entityCP.HoraTope = cupoProducto.HoraTope;
+            entityCP.Activo = cupoProducto.Activo;
+            entityCP.EsDomicilio2 = cupoProducto.EsDomicilio2;
+            _cuposDbContext.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] CupoProducto cupoProducto)
+        {
+            return Ok("El registro se agrego de forma exitosa.");
+        }
     }
 }

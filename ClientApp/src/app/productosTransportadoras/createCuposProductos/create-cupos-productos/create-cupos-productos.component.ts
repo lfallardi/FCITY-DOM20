@@ -12,6 +12,8 @@ import { ParameterService } from '../../../../services/Parameter.service';
 import { CuposProductosDetail } from '../../model/CuposProductosDetail';
 import { disableDebugTools } from '@angular/platform-browser';
 import { NewCuposRequest } from 'src/app/cupos/model/request/NewCuposRequest';
+import { CuposBaseService } from 'src/services/cuposBase.service';
+import { $ } from 'protractor';
 
 export interface Prioridad {
   value: string;
@@ -32,7 +34,8 @@ export class CreateCuposProductosComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public CupoProductoDet: CuposProductosDetail,
               private modalService: ModalService, private spinnerService: SpinnerService,
-              private alertService: AlertService, private fb: FormBuilder, public parameterSerice: ParameterService) {
+              private alertService: AlertService, private fb: FormBuilder, public parameterSerice: ParameterService,
+              private cupoBaseService: CuposBaseService) {
                 this.setForm();
               }
 
@@ -40,6 +43,7 @@ export class CreateCuposProductosComponent implements OnInit {
   errors = errorMessages;
   createCuposProductosForm: FormGroup;
   public onCreateCuposProductos = new EventEmitter();
+  idECCupoBase = 0;
 
   Prioridades: Prioridad[] = [
     {value: 'A', viewValue: 'Alta'},
@@ -95,6 +99,17 @@ export class CreateCuposProductosComponent implements OnInit {
     if (this.createCuposProductosForm.valid) {
       this.spinnerService.show();
     }
+  }
+
+  loadCupoBase(value) {
+    this.cupoBaseService.getCupoBaseById(value).pipe()
+    .subscribe(cupo => { this.createCuposProductosForm.controls['cantCupos'].setValue(cupo.cuposTotales);
+                         this.createCuposProductosForm.controls['porcDeshabilita'].setValue(cupo.porcCuposDesactiva);
+                         this.createCuposProductosForm.controls['cupoMinimo'].setValue(100 - cupo.porcCuposDesactiva);
+                         this.idECCupoBase = cupo.idECCupoBase;
+                       },
+                         error => { console.log(error, error.message); });
+
   }
 
   mustDisableCreateButton() {

@@ -63,7 +63,7 @@
               <div class="col">
                 <mat-form-field class="cupos-full-width">
             
-                  <mat-select name="CupoBase" id="CupoBase" placeholder="Cupo base" formControlName="CupoBase" required>
+                  <mat-select name="CupoBase" id="CupoBase" placeholder="Cupo base" formControlName="CupoBase" (selectionChange)="loadCupoBase($event.value)" required>
                     <mat-option *ngFor="let cmbCupoBase of cmbCuposBases" [value]="cmbCupoBase.value">{{cmbCupoBase.viewValue}}</mat-option>
                   </mat-select>
                   <mat-error *ngIf="createCuposProductosForm.get('CupoBase').hasError('required')" > {{errors.requiredCupos}} </mat-error>
