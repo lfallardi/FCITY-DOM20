@@ -36,8 +36,8 @@ export class EditCupoBaseComponent implements OnInit {
 
   setForm() {
     this.updateCuposForm = this.fb.group({
-      cupos: [this.cupoDet.cuposTotales, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
-      porcDeshabilita: [this.cupoDet.porcCuposDesactiva, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      cuposTotales: [this.cupoDet.cuposTotales, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      porcCuposDesactiva: [this.cupoDet.porcCuposDesactiva, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
     });
   }
 
@@ -56,9 +56,11 @@ export class EditCupoBaseComponent implements OnInit {
 
         const updateCupos = <CuposDetail>this.updateCuposForm.value;
         updateCupos.idECCupoBase = this.cupoDet.idECCupoBase;
-        updateCupos.cuposTotales = this.cupoDet.cuposTotales;
-        updateCupos.porcCuposDesactiva = this.cupoDet.porcCuposDesactiva;
-        console.log("estoy antes del subscribe!");
+        this.cupoDet.cuposTotales = updateCupos.cuposTotales;
+        this.cupoDet.porcCuposDesactiva = updateCupos.porcCuposDesactiva;
+        // updateCupos.cuposTotales = this.cupoDet.cuposTotales;
+        // updateCupos.porcCuposDesactiva = this.cupoDet.porcCuposDesactiva;
+
         this.cuposService.updateCupoBase(updateCupos).subscribe(response => {
           this.spinnerService.hide();
           this.alertService.success('Se actualizaron los datos de forma exitosa!');

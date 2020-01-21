@@ -24,7 +24,11 @@ export class CuposBaseService {
         return this.http.get<Cupos[]>(environment.userServer + 'api/CuposBase');
     }
 
+    getCupoBaseById(ID: number): Observable<Cupos> {
+        return this.http.get<Cupos>(environment.userServer + 'api/CuposBase/' + ID.toString());
+    }
+
     updateCupoBase(cupoBase: CuposDetail) {
-        return this.http.put(environment.userServer + 'api/CuposBase', cupoBase);
+        return this.http.put(environment.userServer + 'api/CuposBase/' + cupoBase.idECCupoBase, cupoBase);
     }
 }

@@ -22,19 +22,19 @@
         
         <mat-form-field class="cupos-full-width">
 
-          <input matInput id="cupos" placeholder="Cantidad de cupos"
-                 formControlName="cupos"
+          <input matInput id="cuposTotales" placeholder="Cantidad de cupos"
+                 formControlName="cuposTotales"
                  autofocus required>
-          <mat-error *ngIf="updateCuposForm.get('cupos').hasError('required')" > {{errors.requiredCupos}} </mat-error>
+          <mat-error *ngIf="updateCuposForm.get('cuposTotales').hasError('required')" > {{errors.requiredCupos}} </mat-error>
           
         </mat-form-field>
         
         <mat-form-field class="cupos-full-width">
           
-          <input matInput id="porcDeshabilita" placeholder="Porcentaje de cupos"
-                 formControlName="porcDeshabilita"
+          <input matInput id="porcCuposDesactiva" placeholder="Porcentaje de cupos"
+                 formControlName="porcCuposDesactiva"
                  required>
-          <mat-error *ngIf="updateCuposForm.get('porcDeshabilita').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error>
+          <mat-error *ngIf="updateCuposForm.get('porcCuposDesactiva').hasError('required')" > {{errors.requiredPorcDeshabilita}} </mat-error>
         
         </mat-form-field>
       

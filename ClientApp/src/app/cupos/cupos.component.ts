@@ -60,7 +60,7 @@ export class CuposComponent implements OnInit {
       autoFocus: false
     });
 
-    dialogRef.componentInstance.onEditComplete.subscribe(() => {
+    dialogRef.componentInstance.onUpdateComplete.subscribe(() => {
       this.modalService.closeAll();
       this.initData();
     });

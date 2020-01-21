@@ -16,7 +16,6 @@ namespace CuposAPI.Controllers
     [ApiController]
     public class CuposBaseController : ControllerBase
     {
-        // private CuposDbContext _cuposDbContext = new CuposDbContext();
 
         private CuposDbContext _cuposDbContext;
         public CuposBaseController(CuposDbContext cuposDbContext)
@@ -32,14 +31,8 @@ namespace CuposAPI.Controllers
             return Ok(_cuposDbContext.ECCupoBase.ToList());
 
         }
-        //public async Task<IActionResult> Get()
-        //{
 
-        //    return Ok(_cuposDbContext.ECCupoBase.ToList());
-
-        //}
-
-        // GET: api/CuposBase/5
+        // GET: api/CuposBase/1
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -50,21 +43,6 @@ namespace CuposAPI.Controllers
             }
             return Ok(cupoBase);
         }
-
-        //public CupoBase Get(int id)
-        //{
-        //    var cupoBase = _cuposDbContext.ECCupoBase.Find(id);
-        //    return cupoBase;
-        //}
-
-
-        // PUT: api/CuposBase/5
-        //[HttpPut()]
-        //public async Task<IActionResult> Update([FromBody]CupoBaseUpdate request)
-        //{
-        //    await _
-        //}
-
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] CupoBase cupo)
