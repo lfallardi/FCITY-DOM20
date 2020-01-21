@@ -97,7 +97,21 @@ export class CreateCuposProductosComponent implements OnInit {
 
   createNewCupoProducto() {
     if (this.createCuposProductosForm.valid) {
-      this.spinnerService.show();
+      let dialogRef;
+
+      dialogRef = this.modalService.open(ModalConfirmComponent, {
+        width: '750px',
+        data: this.configModalConfirm(),
+        autoFocus: false
+      });
+
+      dialogRef.componentInstance.onConfirm.subscribe(() => {
+        this.spinnerService.show();
+
+        this.spinnerService.hide();
+        this.alertService.success('Se agregaron los datos de forma exitosa!');
+        this.onCreateCuposProductos.emit();
+      });
     }
   }
 
@@ -121,6 +135,16 @@ export class CreateCuposProductosComponent implements OnInit {
            && this.createCuposProductosForm.get('horasPrevias').value === ''
            && this.createCuposProductosForm.get('horasTransportadora').value === '');
     }
+  }
+
+  configModalConfirm(): ModalConfig {
+    const modalConfig = new ModalConfig();
+    modalConfig.btnLabel = 'Aceptar';
+    modalConfig.message = '¿Está seguro que desea agregar el registro?';
+    modalConfig.tittle = 'Confirmar registro';
+    modalConfig.showCancelButton = true;
+    modalConfig.showCrossButton = true;
+    return modalConfig;
   }
 
 }
