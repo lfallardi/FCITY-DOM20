@@ -41,7 +41,7 @@ namespace CuposAPI.Controllers
             return Ok(entityCP);
         }
 
-        [HttpGet("getByKey/{key}")]
+        [HttpGet("GetByKey/{key}")]
         public IActionResult GetByKey(string key)
         {
             var entityCP = _cuposDbContext.ECCupoProducto.Find(key);

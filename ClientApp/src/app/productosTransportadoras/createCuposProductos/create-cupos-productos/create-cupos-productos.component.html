@@ -129,8 +129,7 @@
                     <div class="row">
                       <mat-form-field class="cupos-full-width">
                         <input matInput id="Excepcion" placeholder="Nombre excepción"
-                               formControlName="Excepcion"
-                               required>
+                               formControlName="Excepcion">
                         <mat-error *ngIf="mep.expanded && createCuposProductosForm.get('Excepcion').hasError('required')" > {{errors.requiredNombreExcepcion}} </mat-error>
                       
                       </mat-form-field>
@@ -140,24 +139,21 @@
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="date" placeholder="Fecha inicio"
-                                 id="fechaInicio" name="fechaInicio" formControlName="fechaInicio"
-                                 required>
+                                 id="fechaInicio" name="fechaInicio" formControlName="fechaInicio">
                         </mat-form-field>
                       </div>
 
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="date" placeholder="Fecha fin"
-                                 id="fechaFin" name="fechaFin" formControlName="fechaFin"
-                                 required>
+                                 id="fechaFin" name="fechaFin" formControlName="fechaFin">
                         </mat-form-field>
                       </div>
 
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="time" id="horaTopeExcepcion" placeholder="Hora tope" min="00:00" max="23:59"
-                                 formControlName="horaTopeExcepcion"
-                                 required>
+                                 formControlName="horaTopeExcepcion">
                         </mat-form-field>
                       </div>
                       
@@ -168,24 +164,21 @@
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="number" id="cuposTotalesExcepcion" placeholder="Cupos totales" min="0"
-                                 formControlName="cuposTotalesExcepcion"
-                                 required>
+                                 formControlName="cuposTotalesExcepcion">
                         </mat-form-field>
                       </div>
 
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="number" id="porcDeshabilitaExcepcion" placeholder="Porcentaje deshabilita" min="0"
-                                 formControlName="porcDeshabilitaExcepcion"
-                                 required>
+                                 formControlName="porcDeshabilitaExcepcion">
                         </mat-form-field>
                       </div>
 
                       <div class="col">
                         <mat-form-field>
                           <input matInput type="number" id="cuposMinimosExcepcion" placeholder="Cupos minimos" min="0"
-                                 formControlName="cuposMinimosExcepcion"
-                                 required>
+                                 formControlName="cuposMinimosExcepcion">
                         </mat-form-field>
                       </div>
 
@@ -267,6 +260,7 @@
     
     <mat-divider></mat-divider>
 
+    <!-- CONFIRMACION DE DATOS -->
     <mat-dialog-actions align="end">
       <div class="row mt-2">
     

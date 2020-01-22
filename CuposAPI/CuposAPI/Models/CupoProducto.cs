@@ -16,6 +16,5 @@ namespace CuposAPI.Models
         public bool EsDomicilio2 { get; set; }
         public string HoraTope { get; set; }
 
-
     }
 }

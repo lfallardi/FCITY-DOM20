@@ -10,6 +10,7 @@ import { SpinnerService } from 'src/services/spinner.service';
 import { ScreenElementsService } from 'src/services/screen-elements.service';
 import { CustomValidators } from './model/customValidators';
 import { CreateCuposProductosComponent } from './createCuposProductos/create-cupos-productos/create-cupos-productos.component';
+import { EditCuposProductosComponent } from './editCuposProductos/edit-cupos-productos/edit-cupos-productos.component';
 
 export interface Prioridad {
   value: string;
@@ -88,6 +89,15 @@ export class ProductosTransportadorasComponent implements OnInit {
       autoFocus: false
     });
 
+  }
+
+  editCreateCupoProducto(cupoProducto: CuposProductos): void {
+    let dialogRef;
+    dialogRef = this.modalService.open(EditCuposProductosComponent, {
+      width: '900px',
+      height: '80px',
+      autoFocus: false
+    });
   }
 
 }

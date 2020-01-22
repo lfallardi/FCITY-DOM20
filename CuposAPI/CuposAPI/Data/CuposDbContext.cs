@@ -16,7 +16,7 @@ namespace CuposAPI.Data
         }
 
         public DbSet<CupoBase> ECCupoBase { get; set; }
-
         public DbSet<CupoProducto> ECCupoProducto { get; set; }
+        public DbSet<CupoTransportadoraEstado> ECCupoTransportadoraEstado { get; set; }
     }
 }

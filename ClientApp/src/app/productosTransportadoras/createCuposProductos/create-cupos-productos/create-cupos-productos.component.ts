@@ -82,7 +82,7 @@ export class CreateCuposProductosComponent implements OnInit {
       fechaInicio: '',
       fechaFin: '',
       cuposTotalesExcepcion: 0,
-      horaTopeExcepcion: ['', Validators.required],
+      horaTopeExcepcion: '',
       porcDeshabilitaExcepcion: 0,
       cuposMinimosExcepcion: 0,
       checkActivoExcepcion: false,

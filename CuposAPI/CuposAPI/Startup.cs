@@ -52,7 +52,7 @@ namespace CuposAPI
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                services.AddDbContext<CuposDbContext>(option => option.UseSqlServer(_configuration.GetSection("ConnectionString").Value));
+            services.AddDbContext<CuposDbContext>(option => option.UseSqlServer(_configuration.GetSection("ConnectionString").Value));
 
         }
 
