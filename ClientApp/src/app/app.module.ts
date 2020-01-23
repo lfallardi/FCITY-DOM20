@@ -114,7 +114,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       // inicio de login con AD
       MsalModule.forRoot({
          clientID: 'be80aa86-2710-4446-a7bf-234728431f9a',
-         authority: 'https://login.microsoftonline.com/farmacity.com.ar',
+         authority: 'https://login.microsoftonline.com/farmacity.com.ar', // direccion del AD contra la que hay que validar.
          validateAuthority: true,
          redirectUri:  environment.redirectUrl,
          cacheLocation : 'localStorage',

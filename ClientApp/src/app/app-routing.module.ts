@@ -12,7 +12,6 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { InternalUserGridComponent } from './internalUser/internalUser-grid/internalUser-grid.component';
 import { EstadosTransportadorasComponent } from './estadosTransportadoras/estados-transportadoras/estados-transportadoras.component';
 
-
 const routes: Routes = [
   {path: '', component: LayoutComponent,
     children: [
