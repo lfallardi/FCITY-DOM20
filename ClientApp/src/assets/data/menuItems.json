@@ -24,7 +24,7 @@
             "icon":"search",
             "subItems": [
                 {
-                    "routePath": "/consultas/Transportadoras-State",
+                    "routePath": "/Transportadoras-State",
                     "description": "Estados transportadoras",
                     "disabled": false,
                     "show": false,

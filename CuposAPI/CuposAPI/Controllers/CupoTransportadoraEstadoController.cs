@@ -26,7 +26,7 @@ namespace CuposAPI.Controllers
         public IActionResult Get()
         {
 
-            return Ok(_cuposDbContext.ECCupoTransportadoraEstado.ToList());
+            return Ok(_cuposDbContext.V_ECCuposTransportadoras.ToList());
         }
 
     }

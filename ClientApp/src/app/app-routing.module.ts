@@ -10,8 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductosTransportadorasComponent } from './productosTransportadoras/productosTransportadoras.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { InternalUserGridComponent } from './internalUser/internalUser-grid/internalUser-grid.component';
+import { EstadosTransportadorasComponent } from './estadosTransportadoras/estados-transportadoras/estados-transportadoras.component';
 
-import { TransportadorasStateComponent } from './consults/Transportadoras-state/Transportadoras-state.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,
@@ -20,12 +20,9 @@ const routes: Routes = [
       { path: 'productos', component: ProductosTransportadorasComponent },
       { path: 'internalUser', component: InternalUserGridComponent,
         /* canActivate: [AuthGuard], */ data: { nexturl: '/internalUser', se: 'gridViewInternalUser'}},
-      { path: 'consultas',
-        children: [
-          { path: 'consultas/Transportadoras-State', component: TransportadorasStateComponent}
-        ]
-      },
-
+      { path: 'consultas', children: [
+        {path: 'Transportadoras-State', component: EstadosTransportadorasComponent}
+      ]},
       { path: 'suppliers', component: ConfigurationComponent}
     ] },
   {path: 'login', component: LoginAdComponent},

@@ -23,6 +23,9 @@ namespace CuposAPI.Models
         public bool Bloqueada { get; set; }
         public DateTime FechaBloqueo { get; set; }
         public bool Activo { get; set; }
+        public string Descripcion { get; set; }
+        public int CupoConsumido { get; set; }
+        public int CuposMaximo { get; set; }
 
     }
 }

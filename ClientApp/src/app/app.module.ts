@@ -14,6 +14,7 @@ import { InternalUserGridComponent } from './internalUser/internalUser-grid/inte
 import { EditCupoBaseComponent } from './cupos/editCupoBase/editCupoBase.component';
 import { TransportadorasStateComponent } from './consults/Transportadoras-state/Transportadoras-state.component';
 import { CreateCuposProductosComponent } from './productosTransportadoras/createCuposProductos/create-cupos-productos/create-cupos-productos.component';
+import { EstadosTransportadorasComponent } from './estadosTransportadoras/estados-transportadoras/estados-transportadoras.component';
 
 // FIN DE NAVEGACION
 
@@ -74,7 +75,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
       EditCupoBaseComponent,
       ModalConfirmComponent,
       TransportadorasStateComponent,
-      CreateCuposProductosComponent
+      CreateCuposProductosComponent,
+      EstadosTransportadorasComponent
    ],
    imports: [
       AppRoutingModule,
